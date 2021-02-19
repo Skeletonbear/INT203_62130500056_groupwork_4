@@ -2,16 +2,19 @@
         data() {
             return {
                 tasks: [{
+                        id: 0,
                         image: './images/food1.jpg',
                         article: 'Steamed crab',
                         like: false
                     },
                     {
+                        id: 1,
                         image: './images/food2.jpg',
                         article: 'Steamed shrimp',
                         like: false
                     },
                     {
+                        id: 2,
                         image: './images/food3.jpg',
                         article: 'Oyster',
                         like: false
@@ -20,7 +23,8 @@
                 search: false,
                 input: '',
                 notFound: false,
-                showImages: false,
+                showImage: false,
+                currentIndex: 0,
 
             }
 
@@ -35,21 +39,13 @@
                 this.search = !this.search;
 
             },
-
-
-            switchSearchClicked() {
-                this.searchClicked = !this.searchClicked;
-                if (this.searchClicked == false) {
-                    this.inputSearch = '';
-                }
-            },
             close() {
-                this.showImages = false;
+                this.showImage = false;
             },
-            // imgClicked(index) {
-            //     this.showImages = true;
-            //     this.currentIndex = index;
-
+            imgClicked() {
+                this.showImage = true;
+                //this.currentIndex = index;
+            }
 
         },
         computed: {
@@ -78,6 +74,7 @@
 
         }
     }
+
 
 
     Vue.createApp(app).mount('#app')
